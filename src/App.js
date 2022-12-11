@@ -1,23 +1,33 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from "react";
+import "./App.css";
+import Checker from "./components/Checker";
 
 function App() {
+  const [val, setVal] = useState("");
+
+  function valueChanged(e) {
+    setVal(e.target.value);
+    console.log(val);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Password Checker</h1>
+      <div>
+        <input
+          type="text"
+          id="password-field"
+          placeholder="Enter your password"
+          required
+          onChange={valueChanged}
+        />
+        <Checker val={val} />
+      </div>
+
+      <button className="submit-btn">Submit</button>
+      <h3 id={val.length === 0 ? "hide-password" : "show-password"}>
+        Your Password is: {val}
+      </h3>
     </div>
   );
 }
