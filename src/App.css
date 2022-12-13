@@ -58,6 +58,16 @@
     color: white;
 		font-size: 20px;
 }
+.submit-btn:disabled{
+  width: 300px; 
+		height: 58px;
+		background-color: #4b4b4b;
+		border-radius: 5px;
+		border: none;
+    cursor: pointer;
+    color: white;
+		font-size: 20px;
+}
 
 .submit-btn:hover{
   background-color: #1313357b;
